@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
+  geolocator: ^11.0.0
 
 dev_dependencies:
   flutter_test:
@@ -81,7 +82,11 @@ flutter:
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
-  #     fonts:
+  fonts:
+    - family: Spartan MB
+      fonts:
+      - asset: fonts/SpartanMB-Black.otf
+        weight: 900
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
