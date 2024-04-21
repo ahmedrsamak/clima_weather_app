@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import '../services/location.dart';
+import '../services/weather.dart';
+import 'location_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -12,18 +14,20 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void initState()
   {
     super.initState();
-    MyLocation().checkPermit();
-    getlocation();
+    Location().checkPermit();
+    getCurrentTag();
     print("init state");
   }
   //Get location
-void getlocation()async
-{
-  MyLocation location = MyLocation();
-  await location.getLocation();
-print(location.latitude);
-print(location.longitude);
-}
+  void getLocationData() async {
+    var weatherData = await WeatherModel().getLocationWeather();
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen(
+        locationWeather: weatherData,
+      );
+    }));
+  }
 
   @override
   Widget build(BuildContext context) {
