@@ -9,6 +9,7 @@ class Location {
 
       latitude = position.latitude;
       longitude = position.longitude;
+      print("my location ${latitude}");
     } catch (e) {
       print(e);
     }
